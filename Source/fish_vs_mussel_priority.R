@@ -345,13 +345,7 @@ tm.rep_hot<-tm_shape(surround_lmb,  bbox=sel)+
   tm_shape(border_lmb)+
   tm_borders(lwd = 1.7, 
              col = "black")
-  
-
-
-
-
-
-
+ 
 tiff("hot_coldspots_overlap_comb_310821_2.tiff",
      height = 9, width = 18, units = "cm",  pointsize=8,
      res=300)
