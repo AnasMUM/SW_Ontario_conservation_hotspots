@@ -30,21 +30,21 @@ scale1 <- function(x){(x)/(max(x))}
 
 overall.stress.scaled<-scale01(overall.stress)
 
-cor(fish.native, area)
-cor(fish.native, log10(area))
-cor(fish.SAR, area)
-cor(fish.SAR, log10(area))
+#cor(fish.native, area)
+#cor(fish.native, log10(area))
+#cor(fish.SAR, area)
+#cor(fish.SAR, log10(area))
 
-cor(Mussel.native, area)
-cor(Mussel.native, log10(area))
-cor(Mussel.SAR, area)
-cor(Mussel.SAR, log10(area))
+#cor(Mussel.native, area)
+#cor(Mussel.native, log10(area))
+#cor(Mussel.SAR, area)
+#cor(Mussel.SAR, log10(area))
 
-library(BAT)
+#library(BAT)
 
 
 
-sar(fish.native,,area)
+#sar(fish.native,,area)
 
 res.fish.rich=scale01(resid(lm(fish.native~area)))
 fish.SAR.ratio = fish.SAR/fish.native
@@ -333,7 +333,8 @@ tm.vul<-tm_shape(surround_lmb,  bbox=sel)+
   tm_shape(map_data) + 
   #tm_polygons("reactive.index", palette="viridis", colorNA="white", textNA = NA, showNA = F,   legend.show = T, legend.reverse = F, title= "Fish Biodiversity Index", lwd=0.25, border.alpha = 0.5) +
   #tm_polygons("reactive.index", palette="viridis",  colorNA="gray", textNA = NA, showNA = F,  lwd=0.9,  as.count=F, style="fixed", breaks = breaks.reactive, legend.show = T, legend.reverse = T, title= "Reactive Index",  lwd = 0.8) + 
-  tm_polygons("Vulnerability", palette="OrRd", contrast= c(0,0.8), colorNA="gray", textNA = NA, showNA = F,  lwd=0.9,  as.count=F, style="pretty", n=4, legend.show = T, legend.reverse = T, title= "Score", lwd = 0.8) + 
+  #tm_polygons("Vulnerability", palette="OrRd", contrast= c(0,0.8), colorNA="gray", textNA = NA, showNA = F,  lwd=0.9,  as.count=F, style="pretty", n=4, legend.show = T, legend.reverse = T, title= "Score", lwd = 0.8) + #Pretty categories
+  tm_polygons("Vulnerability", palette="OrRd", contrast= c(0,0.8), colorNA="gray", textNA = NA, showNA = F,  lwd=0.9,  as.count=F, style="quantile", n=3, legend.show = T, legend.reverse = T, title= "Score", lwd = 0.8) + #Quantie categories
   #tm_polygons("proactive.index.1", palette="-inferno", contrast= c(0,0.7), colorNA="gray", textNA = NA, showNA = F,  lwd=0.9,  as.count=F, style="quantile", n=3, legend.show = T, legend.reverse = T, title= "Priority Ranking",  lwd = 0.8) + 
   #tm_polygons("jaccard.S", palette="Blues", contrast= c(0.1,1), colorNA="white", textNA = NA, showNA = F,  lwd=0.9,   style="quantile", n=4, legend.show = T, legend.reverse = T, title= "Jaccard Index", lwd = 0.65) + 
   #tm_fill("Total.richness", palette="Purples", contrast= c(0.1,1), colorNA="white", lwd=0.9,  as.count=T, style="fixed", breaks = breaks.total, legend.show = T, legend.reverse = T, title= "Total richness") + 
@@ -353,7 +354,7 @@ tm.vul<-tm_shape(surround_lmb,  bbox=sel)+
   tm_scale_bar( breaks = c(0, 25, 50, 75, 100), position=c("left", "bottom"), text.size =0.7)
 
 
-#tm.vul
+tm.vul
 
 ##Irreplacilibity
 tm.irr<-tm_shape(surround_lmb,  bbox=sel)+
@@ -363,7 +364,8 @@ tm.irr<-tm_shape(surround_lmb,  bbox=sel)+
   tm_shape(map_data) + 
   #tm_polygons("reactive.index", palette="viridis", colorNA="white", textNA = NA, showNA = F,   legend.show = T, legend.reverse = F, title= "Fish Biodiversity Index", lwd=0.25, border.alpha = 0.5) +
   #tm_polygons("reactive.index", palette="viridis",  colorNA="gray", textNA = NA, showNA = F,  lwd=0.9,  as.count=F, style="fixed", breaks = breaks.reactive, legend.show = T, legend.reverse = T, title= "Reactive Index",  lwd = 0.8) + 
-  tm_polygons("Irreplaceability", palette="PuRd", contrast= c(0,0.8), colorNA="gray", textNA = NA, showNA = F,  lwd=0.9,  as.count=F, style="pretty", n=4, legend.show = T, legend.reverse = T, title= "Score", lwd = 0.8) + 
+  #tm_polygons("Irreplaceability", palette="PuRd", contrast= c(0,0.8), colorNA="gray", textNA = NA, showNA = F,  lwd=0.9,  as.count=F, style="pretty", n=4, legend.show = T, legend.reverse = T, title= "Score", lwd = 0.8) + 
+  tm_polygons("Irreplaceability", palette="PuRd", contrast= c(0,0.8), colorNA="gray", textNA = NA, showNA = F,  lwd=0.9,  as.count=F, style="quantile", n=3, legend.show = T, legend.reverse = T, title= "Score", lwd = 0.8) + #quantile
   #tm_polygons("proactive.index.1", palette="-inferno", contrast= c(0,0.7), colorNA="gray", textNA = NA, showNA = F,  lwd=0.9,  as.count=F, style="quantile", n=3, legend.show = T, legend.reverse = T, title= "Priority Ranking",  lwd = 0.8) + 
   #tm_polygons("jaccard.S", palette="Blues", contrast= c(0.1,1), colorNA="white", textNA = NA, showNA = F,  lwd=0.9,   style="quantile", n=4, legend.show = T, legend.reverse = T, title= "Jaccard Index", lwd = 0.65) + 
   #tm_fill("Total.richness", palette="Purples", contrast= c(0.1,1), colorNA="white", lwd=0.9,  as.count=T, style="fixed", breaks = breaks.total, legend.show = T, legend.reverse = T, title= "Total richness") + 
@@ -389,7 +391,8 @@ tm.rep<-tm_shape(surround_lmb,  bbox=sel)+
   tm_shape(map_data) + 
   #tm_polygons("reactive.index", palette="viridis", colorNA="white", textNA = NA, showNA = F,   legend.show = T, legend.reverse = F, title= "Fish Biodiversity Index", lwd=0.25, border.alpha = 0.5) +
   #tm_polygons("reactive.index", palette="viridis",  colorNA="gray", textNA = NA, showNA = F,  lwd=0.9,  as.count=F, style="fixed", breaks = breaks.reactive, legend.show = T, legend.reverse = T, title= "Reactive Index",  lwd = 0.8) + 
-  tm_polygons("Representativeness", palette="BuGn", contrast= c(0,0.8), colorNA="gray", textNA = NA, showNA = F,  lwd=0.9,  as.count=F, style="pretty", n=4, legend.show = T, legend.reverse = T, title= "Score", lwd = 0.8) + 
+  #tm_polygons("Representativeness", palette="BuGn", contrast= c(0,0.8), colorNA="gray", textNA = NA, showNA = F,  lwd=0.9,  as.count=F, style="pretty", n=4, legend.show = T, legend.reverse = T, title= "Score", lwd = 0.8) + 
+  tm_polygons("Representativeness", palette="BuGn", contrast= c(0,0.8), colorNA="gray", textNA = NA, showNA = F,  lwd=0.9,  as.count=F, style="quantile", n=3, legend.show = T, legend.reverse = T, title= "Score", lwd = 0.8) + #quantile
   #tm_polygons("proactive.index.1", palette="-inferno", contrast= c(0,0.7), colorNA="gray", textNA = NA, showNA = F,  lwd=0.9,  as.count=F, style="quantile", n=3, legend.show = T, legend.reverse = T, title= "Priority Ranking",  lwd = 0.8) + 
   #tm_polygons("jaccard.S", palette="Blues", contrast= c(0.1,1), colorNA="white", textNA = NA, showNA = F,  lwd=0.9,   style="quantile", n=4, legend.show = T, legend.reverse = T, title= "Jaccard Index", lwd = 0.65) + 
   #tm_fill("Total.richness", palette="Purples", contrast= c(0.1,1), colorNA="white", lwd=0.9,  as.count=T, style="fixed", breaks = breaks.total, legend.show = T, legend.reverse = T, title= "Total richness") + 
@@ -407,7 +410,7 @@ tm.rep<-tm_shape(surround_lmb,  bbox=sel)+
              col = "black")
 
 
-region<-st_read("SW_ON_Hybas_07_with_surround_reprojected_2.shp")
+region<-st_read("data/SW_ON_Hybas_07_with_surround_reprojected_2.shp")
 
 region_lmb=st_transform(region, crs = lambert)
 
@@ -434,7 +437,7 @@ vp <- viewport(x=0.928, y=0.538, width = w, height=h, just=c("right", "bottom"))
 
 
 
-tiff("Criteria_map.tiff",
+tiff("Criteria_map_quantile_150921.tiff",
      height = 25.5, width = 8.5, units = "cm",  pointsize=8,
      res=300)
 
